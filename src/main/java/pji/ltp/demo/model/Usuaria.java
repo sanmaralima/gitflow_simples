@@ -17,6 +17,7 @@ public class Usuaria {
         this.cpf = cpf;
         this.idade = idade;
         this.assinante = assinante;
+
     }
 
     public Usuaria() {

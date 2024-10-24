@@ -1,6 +1,15 @@
 package pji.ltp.demo.model;
 
+import org.springframework.stereotype.Indexed;
+
+import jakarta.annotation.Generated;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+
 public class Publicacao {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long idPublicacao;
     private String data;
     private String titulo;
