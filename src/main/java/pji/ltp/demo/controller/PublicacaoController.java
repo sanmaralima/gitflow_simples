@@ -7,7 +7,6 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
-
 import pji.ltp.demo.Repository.PublicacaoRepository;
 import pji.ltp.demo.model.Publicacao;
 
@@ -26,7 +25,7 @@ public class PublicacaoController {
         }
     }
 
-    @GetMapping("/publicacoes")
+    @GetMapping("/post")
     public List<Publicacao> getAllPublicacoes() {
         return (List<Publicacao>) PublicacaoRepository.findAll();
     }

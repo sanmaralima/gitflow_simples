@@ -4,5 +4,5 @@ import pji.ltp.demo.model.Publicacao;
 
 public interface PublicacaoRepository extends CrudRepository<Publicacao, Long>{
     Publicacao save(Publicacao newPublicacao);
-
+    
 }
