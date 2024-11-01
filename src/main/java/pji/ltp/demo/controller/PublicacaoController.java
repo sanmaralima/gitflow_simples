@@ -7,6 +7,8 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
+
+import jakarta.servlet.http.HttpServletResponse;
 import pji.ltp.demo.Repository.PublicacaoRepository;
 import pji.ltp.demo.model.Publicacao;
 
@@ -30,8 +32,18 @@ public class PublicacaoController {
         return (List<Publicacao>) PublicacaoRepository.findAll();
     }
 
-    @PostMapping("/post/{id}")
-    public Publicacao createNewPublicacao(@RequestBody Publicacao newPublicacao) {
-        return PublicacaoRepository.save(newPublicacao);
+    @PostMapping("/post")
+    public Publicacao createNewPublicacao(
+        @RequestBody Publicacao newPublicacao, 
+        HttpServletResponse servletResponse) {
+    
+        Publicacao createdPublicacao = PublicacaoRepository.save(newPublicacao);
+        servletResponse.setStatus(HttpServletResponse.SC_CREATED); // Define o status iguala 201
+        return createdPublicacao;
     }
+
+    // @PostMapping("/post/{id}")
+    // public Publicacao createNewPublicacao(@RequestBody Publicacao newPublicacao) {
+    //     return PublicacaoRepository.save(newPublicacao);
+    // }
 }
