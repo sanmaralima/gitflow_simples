@@ -1,10 +1,13 @@
 package pji.ltp.demo.model;
 
+import java.util.List;
+
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
+import jakarta.persistence.OneToMany;
 import jakarta.persistence.OneToOne;
 
 @Entity
@@ -19,7 +22,8 @@ public class Servico {
     @JoinColumn( name = "idPublicacao")
     private Publicacao publicacao;
 
-    
+    @OneToMany(mappedBy = "servico")
+    private List<ServicoUsuaria> servicoUsuarias;    
 
 
     public Servico() {

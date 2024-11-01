@@ -1,4 +1,6 @@
 package pji.ltp.demo.model;
+import java.util.List;
+
 import jakarta.persistence.*;
 
 @Entity
@@ -26,6 +28,9 @@ public class Usuaria {
     @OneToOne
     @JoinColumn(name = "idAvaliacao")
     private Avaliacao avaliacao;
+
+    @OneToMany(mappedBy = "usuaria")
+    private List<ServicoUsuaria> servicoUsuarias;
 
     public Usuaria(Long idUsuaria, String nome, String cpf, int idade, boolean assinante) {
         this.idUsuaria = idUsuaria;

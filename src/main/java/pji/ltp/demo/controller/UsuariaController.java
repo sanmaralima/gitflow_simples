@@ -12,12 +12,13 @@ import org.springframework.web.bind.annotation.PathVariable;
 
 
 @RestController
+@RequestMapping("/usuaria")
 public class UsuariaController{
 
     @Autowired
     UsuariaRepository UsuariaRepository;
 
-    @GetMapping("/usuaria/{id}")
+    @GetMapping("/{id}")
     public Usuaria getUsuariaById(@PathVariable Long id) {
         try {
             return UsuariaRepository.findById(id).get();
@@ -26,7 +27,7 @@ public class UsuariaController{
         }
     }
     
-    @GetMapping("/usuaria")
+    @GetMapping
     public List<Usuaria> getAllUsuarias() {
         return (List<Usuaria>) UsuariaRepository.findAll();
     }
