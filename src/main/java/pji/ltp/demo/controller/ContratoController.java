@@ -23,7 +23,7 @@ public class ContratoController {
         }
     }
 
-    @DeleteMapping("/contrato/{id}")
+     @DeleteMapping("/contrato/{id}")
     public void deleteContratoById(@PathVariable("id") Long idToDelete) {
         contratoRepository.deleteById(idToDelete);
     }

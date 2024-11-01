@@ -31,7 +31,7 @@ public class UsuariaController{
         return (List<Usuaria>) UsuariaRepository.findAll();
     }
 
-    @PostMapping("/usuaria")
+    @PostMapping("/usuaria/{id}")
     public Usuaria createNewUsuaria(@RequestBody Usuaria newUsuaria) {
         return UsuariaRepository.save(newUsuaria);
     }
@@ -56,6 +56,11 @@ public class UsuariaController{
         UsuariaRepository.save(usuariaFromDb);
         
         return usuariaFromDb;
+    }
+
+    @GetMapping("/usuarias")
+    public List<Usuaria> getAllUsuarias() {
+        return (List<Usuaria>) UsuariaRepository.findAll();
     }
 
 }
