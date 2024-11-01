@@ -8,7 +8,6 @@ import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import pji.ltp.demo.Repository.UsuariaRepository;
 import pji.ltp.demo.model.Usuaria;
-
 import org.springframework.web.bind.annotation.PathVariable;
 
 
@@ -37,7 +36,7 @@ public class UsuariaController{
         return UsuariaRepository.save(newUsuaria);
     }
 
-    @DeleteMapping("/pet/{id}")
+    @DeleteMapping("/usuaria/{id}")
     public void deleteUsuariaById(@PathVariable("id") Long idToDelete) {
         UsuariaRepository.deleteById(idToDelete);
     }
