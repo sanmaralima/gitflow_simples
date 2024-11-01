@@ -1,4 +1,5 @@
 package pji.ltp.demo.model;
+import java.util.List;
 import jakarta.persistence.*;
 
 @Entity
@@ -10,6 +11,7 @@ public class Usuaria {
     private String cpf;
     private int idade;
     private boolean assinante;
+    private List<Usuaria> usuarias;
 
     public Usuaria(Long idUsuaria, String nome, String cpf, int idade, boolean assinante) {
         this.idUsuaria = idUsuaria;

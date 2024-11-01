@@ -3,5 +3,5 @@ import org.springframework.data.repository.CrudRepository;
 import pji.ltp.demo.model.Usuaria;
 
 public interface UsuariaRepository extends CrudRepository<Usuaria, Long>{ 
-    Servico save(Servico newServico);
+    Usuaria save(Usuaria newServico);
 }

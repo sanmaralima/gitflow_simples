@@ -58,9 +58,4 @@ public class UsuariaController{
         return usuariaFromDb;
     }
 
-    @GetMapping("/usuarias")
-    public List<Usuaria> getAllUsuarias() {
-        return (List<Usuaria>) UsuariaRepository.findAll();
-    }
-
 }
