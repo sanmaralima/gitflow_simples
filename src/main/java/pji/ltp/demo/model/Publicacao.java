@@ -18,6 +18,19 @@ public class Publicacao {
     public Publicacao() {
     }
 
+    @Entity
+    public class Publicacao {
+        @Id
+        @GeneratedValue(strategy = GenerationType.IDENTITY)
+        private Long idPublicacao;
+
+        private String bio;
+
+        @OneToOne
+        @JoinColumn(name = "idUsuaria")
+        private Usuaria usuaria;
+    }
+
     public Publicacao(Long idPublicacao, String data, String titulo, String descricao) {
         this.idPublicacao = idPublicacao;
         this.data = data;

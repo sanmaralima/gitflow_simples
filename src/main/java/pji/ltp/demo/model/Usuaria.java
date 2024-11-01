@@ -11,6 +11,20 @@ public class Usuaria {
     private int idade;
     private boolean assinante;
 
+
+    @Entity
+    public class Usuaria {
+        @Id
+        @GeneratedValue(strategy = GenerationType.IDENTITY)
+        private Long idUsuaria;
+    
+        private String bio;
+    
+        @OneToOne
+        @JoinColumn(name = "idPublicacao")
+        private Publicacao publicacao;
+    }
+
     public Usuaria(Long idUsuaria, String nome, String cpf, int idade, boolean assinante) {
         this.idUsuaria = idUsuaria;
         this.nome = nome;

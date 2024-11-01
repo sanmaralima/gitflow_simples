@@ -8,6 +8,19 @@ public class Servico {
     public Servico() {
     }
 
+    @Entity
+    public class Servico {
+        @Id
+        @GeneratedValue(strategy = GenerationType.IDENTITY)
+        private Long idServico;
+    
+        private String bio;
+    
+        @OneToOne
+        @JoinColumn(name = "idPublicacao")
+        private Publicacao publicacao;
+    }
+
     public Servico(Long idServico, String nome, String descricao) {
         this.idServico = idServico;
         this.nome = nome;
