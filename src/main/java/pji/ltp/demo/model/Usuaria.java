@@ -1,5 +1,4 @@
 package pji.ltp.demo.model;
-import java.util.List;
 import jakarta.persistence.*;
 
 @Entity
@@ -11,7 +10,6 @@ public class Usuaria {
     private String cpf;
     private int idade;
     private boolean assinante;
-    private List<Usuaria> usuarias;
 
     @OneToOne
     @JoinColumn(name = "idPublicacao")
