@@ -5,7 +5,7 @@ import jakarta.persistence.*;
 @Entity
 public class Usuaria {
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long idUsuaria;
     private String nome;
     private String cpf;
@@ -13,19 +13,21 @@ public class Usuaria {
     private boolean assinante;
     private List<Usuaria> usuarias;
 
+    @OneToOne
+    @JoinColumn(name = "idPublicacao")
+    private Publicacao publicacao;
 
-    @Entity
-    public class Usuaria {
-        @Id
-        @GeneratedValue(strategy = GenerationType.IDENTITY)
-        private Long idUsuaria;
-    
-        private String bio;
-    
-        @OneToOne
-        @JoinColumn(name = "idPublicacao")
-        private Publicacao publicacao;
-    }
+    @OneToOne
+    @JoinColumn(name = "idMatricula")
+    private Matricula matricula;
+
+    @OneToOne
+    @JoinColumn(name = "idContrato")
+    private Contrato contrato;
+
+    @OneToOne
+    @JoinColumn(name = "idAvaliacao")
+    private Avaliacao avaliacao;
 
     public Usuaria(Long idUsuaria, String nome, String cpf, int idade, boolean assinante) {
         this.idUsuaria = idUsuaria;

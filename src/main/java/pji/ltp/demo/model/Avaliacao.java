@@ -3,6 +3,8 @@ package pji.ltp.demo.model;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.OneToOne;
 
 public class Avaliacao {
     @Id
@@ -11,6 +13,11 @@ public class Avaliacao {
     private int nota;
     private String comentario;
     
+    @OneToOne
+    @JoinColumn(name = "idUsuaria")
+    private Usuaria usuaria;
+    
+
     public Avaliacao() {
     }
 

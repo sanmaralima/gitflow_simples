@@ -1,11 +1,11 @@
 package pji.ltp.demo.model;
 
-import org.springframework.stereotype.Indexed;
 
-import jakarta.annotation.Generated;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.OneToOne;
 
 public class Publicacao {
     @Id
@@ -14,22 +14,15 @@ public class Publicacao {
     private String data;
     private String titulo;
     private String descricao;
-    
-    public Publicacao() {
-    }
 
-    @Entity
-    public class Publicacao {
-        @Id
-        @GeneratedValue(strategy = GenerationType.IDENTITY)
-        private Long idPublicacao;
+    @OneToOne
+    @JoinColumn(name = "idServico")
+    private Servico servico;
 
-        private String bio;
+    @OneToOne
+    @JoinColumn(name = "idUsuaria")
+    private Usuaria usuaria;
 
-        @OneToOne
-        @JoinColumn(name = "idUsuaria")
-        private Usuaria usuaria;
-    }
 
     public Publicacao(Long idPublicacao, String data, String titulo, String descricao) {
         this.idPublicacao = idPublicacao;
